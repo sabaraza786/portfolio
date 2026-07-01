@@ -1,0 +1,1 @@
+Resume PDF placeholder: replace public/resume.pdf with the real resume file before deploying.
