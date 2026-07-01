@@ -73,7 +73,7 @@ export const SOCIAL_LINKS = [
 ];
 
 export const ABOUT_COUNTERS = [
-  { label: "Projects Built", value: 4, suffix: "+" },
+  { label: "Projects Built", value: 6, suffix: "+" },
   { label: "Technologies", value: 18, suffix: "+" },
   { label: "Certificates", value: 3, suffix: "+" },
 ];
@@ -174,7 +174,49 @@ export const PROJECTS = [
     ],
     tech: ["n8n", "OpenAI API", "Airtable", "ISBN Lookup"],
     tag: "AI Automation",
-    links: { demo: "", github: PROFILE.social.github },
+    links: {
+      demo: "",
+      github:
+        "https://github.com/sabaraza786/n8n-Workflow/tree/main/Book-Inventory-System",
+    },
+  },
+  {
+    id: "whatsapp-chatbot",
+    title: "WhatsApp Chatbot Workflow",
+    period: "Automation",
+    description:
+      "A WhatsApp automation workflow that handles chatbot-style conversations and routes messages through the connected n8n flow.",
+    features: [
+      "WhatsApp message automation",
+      "n8n workflow orchestration",
+      "Conversation routing",
+    ],
+    tech: ["n8n", "WhatsApp", "Automation"],
+    tag: "AI Automation",
+    links: {
+      demo: "",
+      github:
+        "https://github.com/sabaraza786/n8n-Workflow/tree/main/WhatsApp-Chatbot",
+    },
+  },
+  {
+    id: "brightsmile-dental-ai",
+    title: "BrightSmile Dental AI Receptionist",
+    period: "Automation",
+    description:
+      "An AI receptionist workflow for a dental practice that can help manage incoming inquiries and guide the intake flow.",
+    features: [
+      "AI receptionist workflow",
+      "Lead and inquiry handling",
+      "Dental practice intake automation",
+    ],
+    tech: ["n8n", "AI Automation", "Workflow"],
+    tag: "AI Automation",
+    links: {
+      demo: "",
+      github:
+        "https://github.com/sabaraza786/n8n-Workflow/tree/main/BrightSmile-Dental-AI-Receptionist",
+    },
   },
   {
     id: "password-manager",
@@ -204,7 +246,7 @@ export const PROJECTS = [
     ],
     tech: ["React", "Tailwind CSS", "React Icons"],
     tag: "Frontend",
-    links: { demo: "", github: PROFILE.social.github },
+    links: { demo: "", github: "https://github.com/sabaraza786/ToDo_App" },
   },
 ];
 
