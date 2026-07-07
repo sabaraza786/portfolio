@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { useState } from "react";
 import { PROJECTS } from "../constants/data";
 import SectionHeading from "../components/SectionHeading";
+import ProjectModal from "../components/ProjectModal";
+import AiCrmPreview from "../assets/projects/ai-crm-dashboard.svg";
 
-function ProjectCard({ project, index }) {
+function ProjectCard({ project, index, onOpen }) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 40 }}
@@ -18,8 +21,12 @@ function ProjectCard({ project, index }) {
       <div className="relative flex items-start justify-between gap-4">
         <div>
           <span className="chip mb-3">{project.tag}</span>
-          <h3 className="font-display text-xl font-semibold">{project.title}</h3>
-          <p className="mt-1 font-mono text-xs text-slate-400">{project.period}</p>
+          <h3 className="font-display text-xl font-semibold">
+            {project.title}
+          </h3>
+          <p className="mt-1 font-mono text-xs text-slate-400">
+            {project.period}
+          </p>
         </div>
         <div className="flex gap-2 shrink-0">
           <a
@@ -43,6 +50,22 @@ function ProjectCard({ project, index }) {
             </a>
           )}
         </div>
+      </div>
+      <div className="relative mt-4">
+        {project.featured && (
+          <div className="absolute left-6 top-6 z-10">
+            <span className="chip">Featured</span>
+          </div>
+        )}
+        <img
+          src={AiCrmPreview}
+          alt={`${project.title} preview image — dashboard overview`}
+          width={1200}
+          height={700}
+          loading="lazy"
+          decoding="async"
+          className="h-40 w-full rounded-md bg-slate-100/60 dark:bg-slate-800/40 object-cover transition-transform duration-300 group-hover:scale-105"
+        />
       </div>
 
       <p className="relative mt-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -68,11 +91,21 @@ function ProjectCard({ project, index }) {
           </span>
         ))}
       </div>
+      <div className="mt-4 flex items-center gap-3">
+        <button
+          onClick={() => onOpen(project)}
+          className="btn btn-outline btn-sm"
+          aria-label={`View details for ${project.title}`}
+        >
+          View Details
+        </button>
+      </div>
     </motion.article>
   );
 }
 
 export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState(null);
   return (
     <section id="projects" className="section">
       <div className="section-inner">
@@ -84,9 +117,21 @@ export default function Projects() {
         />
         <div className="grid sm:grid-cols-2 gap-6">
           {PROJECTS.map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} />
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={i}
+              onOpen={(p) => setSelectedProject(p)}
+            />
           ))}
         </div>
+
+        {selectedProject && (
+          <ProjectModal
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
+        )}
       </div>
     </section>
   );

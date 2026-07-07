@@ -73,7 +73,7 @@ export const SOCIAL_LINKS = [
 ];
 
 export const ABOUT_COUNTERS = [
-  { label: "Projects Built", value: 6, suffix: "+" },
+  { label: "Projects Built", value: 7, suffix: "+" },
   { label: "Technologies", value: 18, suffix: "+" },
   { label: "Certificates", value: 3, suffix: "+" },
 ];
@@ -247,6 +247,34 @@ export const PROJECTS = [
     tech: ["React", "Tailwind CSS", "React Icons"],
     tag: "Frontend",
     links: { demo: "", github: "https://github.com/sabaraza786/ToDo_App" },
+  },
+  {
+    id: "ai-crm-dashboard",
+    title: "AI CRM Dashboard",
+    period: "2026",
+    description:
+      "An AI-powered CRM dashboard designed to streamline client management, automate business intelligence, and provide predictive analytics.",
+    featured: true,
+    features: [
+      "Automated client health analysis and business recommendations",
+      "Predictive lead scoring",
+      "Interactive analytics and visual dashboards",
+      "Responsive UI with native dark mode support",
+    ],
+    tech: [
+      "HTML5",
+      "CSS3",
+      "JavaScript (ES6+)",
+      "React.js",
+      "Tailwind CSS",
+      "Lucide React",
+      "Recharts",
+    ],
+    tag: "AI Dashboard",
+    links: {
+      demo: "",
+      github: "https://github.com/sabaraza786/AI_CRM_Dashboard",
+    },
   },
 ];
 
